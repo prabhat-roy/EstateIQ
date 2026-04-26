@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: conveyancing-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: conveyancing-service, estateiq.io/domain: transactions }
+data:
+  LOG_LEVEL: info
+  PORT: "50062"

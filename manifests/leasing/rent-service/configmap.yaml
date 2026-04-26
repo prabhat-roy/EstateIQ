@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rent-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: rent-service, estateiq.io/domain: leasing }
+data:
+  LOG_LEVEL: info
+  PORT: "50082"

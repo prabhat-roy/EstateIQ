@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deal-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: deal-service, estateiq.io/domain: transactions }
+data:
+  LOG_LEVEL: info
+  PORT: "50060"

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-sso
+  namespace: estateiq
+  labels:
+    app.kubernetes.io/name: agent-sso
+    app.kubernetes.io/part-of: estateiq
+    estateiq.io/domain: identity
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: agent-sso } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: agent-sso, estateiq.io/domain: identity }
+    spec:
+      serviceAccountName: agent-sso
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: agent-sso
+          image: harbor.estateiq.internal/estateiq/agent-sso:latest
+          ports: [{ containerPort: 50021, name: http }]
+          envFrom: [{ configMapRef: { name: agent-sso } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50021 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50021 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

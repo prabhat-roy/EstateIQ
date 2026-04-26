@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pm-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: pm-service, estateiq.io/domain: property-management }
+data:
+  LOG_LEVEL: info
+  PORT: "50100"

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "portal-integration.fullname" . }}
+  labels: {{- include "portal-integration.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels: {{- include "portal-integration.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "portal-integration.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "portal-integration.fullname" . }}
+      securityContext: {{- toYaml .Values.securityContext | nindent 8 }}
+      containers:
+        - name: portal-integration
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - { name: http, containerPort: {{ .Values.service.targetPort }} }
+          env:
+            - { name: PORT, value: "{{ .Values.service.targetPort }}" }
+            {{- range $k, $v := .Values.config }}
+            - { name: {{ $k }}, value: "{{ $v }}" }
+            {{- end }}
+          livenessProbe:  {{- toYaml .Values.probes.liveness  | nindent 12 }}
+          readinessProbe: {{- toYaml .Values.probes.readiness | nindent 12 }}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          securityContext: {{- toYaml .Values.containerSecurityContext | nindent 12 }}

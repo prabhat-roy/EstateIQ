@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-sso
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: agent-sso, estateiq.io/domain: identity }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50021, targetPort: 50021 }]
+  selector: { app.kubernetes.io/name: agent-sso }

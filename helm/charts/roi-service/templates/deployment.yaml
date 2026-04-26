@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "roi-service.fullname" . }}
+  labels: {{- include "roi-service.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels: {{- include "roi-service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "roi-service.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "roi-service.fullname" . }}
+      securityContext: {{- toYaml .Values.securityContext | nindent 8 }}
+      containers:
+        - name: roi-service
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - { name: http, containerPort: {{ .Values.service.targetPort }} }
+          env:
+            - { name: PORT, value: "{{ .Values.service.targetPort }}" }
+            {{- range $k, $v := .Values.config }}
+            - { name: {{ $k }}, value: "{{ $v }}" }
+            {{- end }}
+          livenessProbe:  {{- toYaml .Values.probes.liveness  | nindent 12 }}
+          readinessProbe: {{- toYaml .Values.probes.readiness | nindent 12 }}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          securityContext: {{- toYaml .Values.containerSecurityContext | nindent 12 }}

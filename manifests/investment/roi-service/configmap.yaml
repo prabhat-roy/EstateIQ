@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: roi-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: roi-service, estateiq.io/domain: investment }
+data:
+  LOG_LEVEL: info
+  PORT: "50162"

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: closing-service
+  namespace: estateiq
+  labels:
+    app.kubernetes.io/name: closing-service
+    app.kubernetes.io/part-of: estateiq
+    estateiq.io/domain: transactions
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: closing-service } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: closing-service, estateiq.io/domain: transactions }
+    spec:
+      serviceAccountName: closing-service
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: closing-service
+          image: harbor.estateiq.internal/estateiq/closing-service:latest
+          ports: [{ containerPort: 50064, name: http }]
+          envFrom: [{ configMapRef: { name: closing-service } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50064 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50064 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

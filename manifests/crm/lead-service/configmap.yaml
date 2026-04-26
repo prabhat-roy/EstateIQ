@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lead-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: lead-service, estateiq.io/domain: crm }
+data:
+  LOG_LEVEL: info
+  PORT: "50181"

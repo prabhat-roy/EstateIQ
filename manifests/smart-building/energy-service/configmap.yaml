@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: energy-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: energy-service, estateiq.io/domain: smart-building }
+data:
+  LOG_LEVEL: info
+  PORT: "50241"

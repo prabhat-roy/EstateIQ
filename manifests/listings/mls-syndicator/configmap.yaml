@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mls-syndicator
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: mls-syndicator, estateiq.io/domain: listings }
+data:
+  LOG_LEVEL: info
+  PORT: "50041"

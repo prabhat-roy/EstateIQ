@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rent-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: rent-service, estateiq.io/domain: leasing }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50082, targetPort: 50082 }]
+  selector: { app.kubernetes.io/name: rent-service }

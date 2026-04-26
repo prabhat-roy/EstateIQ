@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: market-analytics
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: market-analytics, estateiq.io/domain: analytics }
+data:
+  LOG_LEVEL: info
+  PORT: "50260"

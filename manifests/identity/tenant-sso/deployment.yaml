@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tenant-sso
+  namespace: estateiq
+  labels:
+    app.kubernetes.io/name: tenant-sso
+    app.kubernetes.io/part-of: estateiq
+    estateiq.io/domain: identity
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: tenant-sso } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: tenant-sso, estateiq.io/domain: identity }
+    spec:
+      serviceAccountName: tenant-sso
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: tenant-sso
+          image: harbor.estateiq.internal/estateiq/tenant-sso:latest
+          ports: [{ containerPort: 50023, name: http }]
+          envFrom: [{ configMapRef: { name: tenant-sso } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50023 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50023 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

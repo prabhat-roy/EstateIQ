@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mobile-bff
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: mobile-bff, estateiq.io/domain: platform }
+data:
+  LOG_LEVEL: info
+  PORT: "50004"

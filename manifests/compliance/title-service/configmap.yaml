@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: title-service
+  namespace: estateiq
+  labels: { app.kubernetes.io/name: title-service, estateiq.io/domain: compliance }
+data:
+  LOG_LEVEL: info
+  PORT: "50221"

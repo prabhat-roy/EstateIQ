@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: investor-sso
+  namespace: estateiq
+  labels:
+    app.kubernetes.io/name: investor-sso
+    app.kubernetes.io/part-of: estateiq
+    estateiq.io/domain: identity
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: investor-sso } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: investor-sso, estateiq.io/domain: identity }
+    spec:
+      serviceAccountName: investor-sso
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: investor-sso
+          image: harbor.estateiq.internal/estateiq/investor-sso:latest
+          ports: [{ containerPort: 50022, name: http }]
+          envFrom: [{ configMapRef: { name: investor-sso } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50022 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50022 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
