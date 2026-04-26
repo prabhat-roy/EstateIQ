@@ -1,0 +1,9 @@
+﻿apiVersion: backstage.io/v1alpha1
+kind: System
+metadata: { name: estateiq, description: EstateIQ enterprise platform }
+spec: { owner: platform-team, domain: estateiq }
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata: { name: estateiq }
+spec: { owner: platform-team }

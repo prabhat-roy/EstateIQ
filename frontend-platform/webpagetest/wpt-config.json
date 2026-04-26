@@ -1,0 +1,7 @@
+﻿{
+  "server": "https://wpt.estateiq.internal",
+  "tests": [
+    { "url": "https://www.estateiq.internal/", "location": "Dulles:Chrome", "runs": 3, "connectivity": "4G" },
+    { "url": "https://app.estateiq.internal/", "location": "Mumbai:Chrome", "runs": 3, "connectivity": "Cable" }
+  ]
+}

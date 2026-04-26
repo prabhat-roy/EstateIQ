@@ -1,0 +1,2 @@
+﻿# pgRouting — routing extension on top of PostGIS
+pgrouting: { enabled: true, postgis: { version: 3.5 } }

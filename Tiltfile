@@ -1,29 +1,12 @@
-# EstateIQ — Tilt config for local development on kind/minikube.
-# `tilt up` builds and deploys a curated dev subset; full stack via skaffold.
+﻿# Tiltfile for EstateIQ local dev hot-reload
+load("ext://restart_process", "docker_build_with_restart")
 
-allow_k8s_contexts(['kind-estateiq', 'docker-desktop', 'minikube'])
+allow_k8s_contexts(["kind-estateiq", "minikube", "docker-desktop"])
 
-DEV_SERVICES = [
-    ('platform',  'api-gateway',     50000),
-    ('platform',  'portal-bff',      50003),
-    ('platform',  'agent-bff',       50001),
-    ('listings',  'listing-service', 50040),
-    ('listings',  'search-service',  50041),
-    ('valuation', 'avm-service',     50141),
-]
+local_resource("buf-generate", cmd="buf generate", deps=["proto/"])
 
-for domain, name, port in DEV_SERVICES:
-    docker_build('estateiq/' + name, 'src/{}/{}'.format(domain, name))
-    helm_resource(
-        name,
-        'helm/charts/' + name,
-        deps=['src/{}/{}'.format(domain, name)],
-        port_forwards=str(port),
-    )
-
-local_resource(
-    'compose-infra',
-    cmd='docker compose up -d postgres redis kafka elasticsearch',
-    auto_init=True,
-    allow_parallel=True,
-)
+services = ["api-gateway", "identity-service", "platform-bff"]
+for s in services:
+    docker_build("estateiq/" + s, "src/" + s, dockerfile="src/" + s + "/Dockerfile")
+    k8s_yaml("manifests/" + s + ".yaml")
+    k8s_resource(s, port_forwards=[8080])

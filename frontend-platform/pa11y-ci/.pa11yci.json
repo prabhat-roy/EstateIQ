@@ -1,0 +1,9 @@
+﻿{
+  "defaults": { "standard": "WCAG2AA", "timeout": 30000, "concurrency": 4, "chromeLaunchConfig": { "args": ["--no-sandbox"] } },
+  "urls": [
+    "https://www.estateiq.internal/",
+    "https://www.estateiq.internal/about",
+    "https://app.estateiq.internal/login",
+    "https://app.estateiq.internal/dashboard"
+  ]
+}
