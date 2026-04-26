@@ -1,0 +1,36 @@
+﻿apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: estateiq-gcp
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/prabhat-roy/EstateIQ.git
+        revision: HEAD
+        directories:
+          - path: helm/charts/*
+  template:
+    metadata:
+      name: '{{path.basename}}-gcp'
+      labels:
+        cloud: gcp
+        estateiq.io/managed-by: argocd
+    spec:
+      project: estateiq
+      source:
+        repoURL: https://github.com/prabhat-roy/EstateIQ.git
+        targetRevision: HEAD
+        path: '{{path}}'
+        helm:
+          valueFiles:
+            - values.yaml
+            - values-gcp.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: estateiq
+      syncPolicy:
+        automated: { prune: true, selfHeal: true }
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true

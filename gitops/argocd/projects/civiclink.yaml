@@ -1,0 +1,16 @@
+﻿apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: estateiq
+  namespace: argocd
+spec:
+  description: EstateIQ platform applications
+  sourceRepos:
+    - https://github.com/prabhat-roy/EstateIQ.git
+  destinations:
+    - { namespace: estateiq, server: https://kubernetes.default.svc }
+    - { namespace: estateiq-*, server: https://kubernetes.default.svc }
+  clusterResourceWhitelist:
+    - { group: '*', kind: '*' }
+  namespaceResourceWhitelist:
+    - { group: '*', kind: '*' }

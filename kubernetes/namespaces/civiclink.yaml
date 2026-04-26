@@ -1,0 +1,171 @@
+﻿---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-estateiq
+  labels:
+    estateiq.io/domain: estateiq
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-analytics-policy
+  labels:
+    estateiq.io/domain: analytics-policy
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-audit-compliance
+  labels:
+    estateiq.io/domain: audit-compliance
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-citizen-identity
+  labels:
+    estateiq.io/domain: citizen-identity
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-civil-registration
+  labels:
+    estateiq.io/domain: civil-registration
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-document-management
+  labels:
+    estateiq.io/domain: document-management
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-education
+  labels:
+    estateiq.io/domain: education
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-grievance
+  labels:
+    estateiq.io/domain: grievance
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-identity-access
+  labels:
+    estateiq.io/domain: identity-access
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-inter-agency
+  labels:
+    estateiq.io/domain: inter-agency
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-land-property
+  labels:
+    estateiq.io/domain: land-property
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-notifications
+  labels:
+    estateiq.io/domain: notifications
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-payments-finance
+  labels:
+    estateiq.io/domain: payments-finance
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-permits-licensing
+  labels:
+    estateiq.io/domain: permits-licensing
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-platform
+  labels:
+    estateiq.io/domain: platform
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-public-health
+  labels:
+    estateiq.io/domain: public-health
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-public-safety
+  labels:
+    estateiq.io/domain: public-safety
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-social-welfare
+  labels:
+    estateiq.io/domain: social-welfare
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: estateiq-taxation
+  labels:
+    estateiq.io/domain: taxation
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
