@@ -1,0 +1,9 @@
+image: { repository: kartoza/geoserver, tag: 2.26.0 }
+postgresql: { enabled: true, postgis: true }
+persistence:
+  enabled: true
+  storageClass: gp3
+  size: 100Gi
+ingress:
+  enabled: true
+  hosts: [{ host: geoserver.estateiq.com }]

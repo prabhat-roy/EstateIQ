@@ -1,0 +1,11 @@
+# OSRM — Open Source Routing Machine
+image: { repository: osrm/osrm-backend, tag: v5.27.1 }
+profiles: [car, foot, bicycle]
+data:
+  source: planet-osm
+  region: north-america
+persistence:
+  enabled: true
+  storageClass: gp3
+  size: 200Gi
+service: { type: ClusterIP, port: 5000 }

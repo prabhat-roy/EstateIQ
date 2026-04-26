@@ -1,0 +1,8 @@
+# Pelias — open-source geocoder
+api:
+  image: { repository: pelias/api, tag: master }
+  ingress: { enabled: true, hosts: [{ host: geocode.estateiq.com }] }
+elasticsearch: { enabled: true }
+importers:
+  - { name: openstreetmap, image: pelias/openstreetmap }
+  - { name: openaddresses, image: pelias/openaddresses }

@@ -1,0 +1,6 @@
+# Strapi — listing-content CMS for storytelling-style listings (neighbourhood overviews, school zones)
+image: { repository: strapi/strapi, tag: 5 }
+postgresql: { enabled: true }
+ingress:
+  enabled: true
+  hosts: [{ host: cms.estateiq.com }]
