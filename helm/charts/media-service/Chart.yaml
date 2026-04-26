@@ -1,0 +1,6 @@
+apiVersion: v2
+name: media-service
+description: EstateIQ media processing (panorama, video transcoding) - Rust
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

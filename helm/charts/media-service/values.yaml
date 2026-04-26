@@ -1,0 +1,69 @@
+image:
+  repository: estateiq/media-service
+  tag: ""
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 50042
+  targetPort: 50042
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 4000m
+    memory: 4Gi
+
+probes:
+  liveness:
+    httpGet:
+      path: /healthz
+      port: 50042
+    initialDelaySeconds: 15
+    periodSeconds: 20
+  readiness:
+    httpGet:
+      path: /healthz
+      port: 50042
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+serviceAccount:
+  create: true
+  annotations: {}
+
+podLabels:
+  app.kubernetes.io/name: media-service
+  app.kubernetes.io/part-of: estateiq
+  estateiq.io/domain: listings
+  estateiq.io/owner-team: listings
+
+podAnnotations: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+env: []
+envFrom: []
+
+config:
+  LOG_LEVEL: info
+
+cloud:
+  provider: ""
+  storageClass: ""
+  ingressClass: ""

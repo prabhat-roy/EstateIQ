@@ -1,0 +1,69 @@
+image:
+  repository: estateiq/esign-service
+  tag: ""
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 50301
+  targetPort: 50301
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
+
+probes:
+  liveness:
+    httpGet:
+      path: /healthz
+      port: 50301
+    initialDelaySeconds: 15
+    periodSeconds: 20
+  readiness:
+    httpGet:
+      path: /healthz
+      port: 50301
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+serviceAccount:
+  create: true
+  annotations: {}
+
+podLabels:
+  app.kubernetes.io/name: esign-service
+  app.kubernetes.io/part-of: estateiq
+  estateiq.io/domain: document
+  estateiq.io/owner-team: document
+
+podAnnotations: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+env: []
+envFrom: []
+
+config:
+  LOG_LEVEL: info
+
+cloud:
+  provider: ""
+  storageClass: ""
+  ingressClass: ""

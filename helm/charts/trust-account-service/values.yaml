@@ -1,0 +1,72 @@
+image:
+  repository: estateiq/trust-account-service
+  tag: ""
+  pullPolicy: IfNotPresent
+
+# Trust account services use blue-green only - keep replicas predictable
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 50224
+  targetPort: 50224
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+  limits:
+    cpu: 2000m
+    memory: 2Gi
+
+probes:
+  liveness:
+    httpGet:
+      path: /healthz
+      port: 50224
+    initialDelaySeconds: 30
+    periodSeconds: 20
+  readiness:
+    httpGet:
+      path: /healthz
+      port: 50224
+    initialDelaySeconds: 10
+    periodSeconds: 10
+
+serviceAccount:
+  create: true
+  annotations: {}
+
+podLabels:
+  app.kubernetes.io/name: trust-account-service
+  app.kubernetes.io/part-of: estateiq
+  estateiq.io/domain: finance
+  estateiq.io/owner-team: finance
+  estateiq.io/deploy-strategy: blue-green
+
+podAnnotations: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+env: []
+envFrom: []
+
+config:
+  LOG_LEVEL: info
+  TRUST_LEDGER_APPEND_ONLY: "true"
+
+cloud:
+  provider: ""
+  storageClass: ""
+  ingressClass: ""

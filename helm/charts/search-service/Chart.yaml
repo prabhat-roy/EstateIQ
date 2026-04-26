@@ -1,0 +1,6 @@
+apiVersion: v2
+name: search-service
+description: EstateIQ Elasticsearch-backed geospatial property search
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

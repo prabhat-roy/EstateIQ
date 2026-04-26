@@ -1,0 +1,16 @@
+# AWS overlay for auth-service.
+cloud:
+  provider: aws
+  storageClass: gp3
+  ingressClass: alb
+
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::{{ .Values.aws.accountId }}:role/estateiq-auth-service
+
+podAnnotations:
+  iam.amazonaws.com/role: estateiq-auth-service
+
+envFrom:
+  - secretRef:
+      name: auth-service-aws-secrets

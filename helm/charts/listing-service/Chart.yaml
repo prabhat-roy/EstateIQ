@@ -1,0 +1,6 @@
+apiVersion: v2
+name: listing-service
+description: EstateIQ listings core service (CRUD, MLS-aligned schema)
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

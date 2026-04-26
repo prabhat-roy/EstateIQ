@@ -1,0 +1,15 @@
+cloud:
+  provider: aws
+  storageClass: gp3
+  ingressClass: alb
+
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::{{ .Values.aws.accountId }}:role/estateiq-avm-service
+
+podAnnotations:
+  iam.amazonaws.com/role: estateiq-avm-service
+
+envFrom:
+  - secretRef:
+      name: avm-service-aws-secrets

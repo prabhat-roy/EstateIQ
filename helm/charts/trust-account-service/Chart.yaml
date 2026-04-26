@@ -1,0 +1,6 @@
+apiVersion: v2
+name: trust-account-service
+description: EstateIQ trust account ledger (RICS/REIA segregation, append-only)
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

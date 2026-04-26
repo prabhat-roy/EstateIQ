@@ -1,0 +1,69 @@
+image:
+  repository: estateiq/search-service
+  tag: ""
+  pullPolicy: IfNotPresent
+
+replicaCount: 3
+
+service:
+  type: ClusterIP
+  port: 50041
+  targetPort: 50041
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 1500m
+    memory: 1Gi
+
+probes:
+  liveness:
+    httpGet:
+      path: /healthz
+      port: 50041
+    initialDelaySeconds: 15
+    periodSeconds: 20
+  readiness:
+    httpGet:
+      path: /healthz
+      port: 50041
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+serviceAccount:
+  create: true
+  annotations: {}
+
+podLabels:
+  app.kubernetes.io/name: search-service
+  app.kubernetes.io/part-of: estateiq
+  estateiq.io/domain: listings
+  estateiq.io/owner-team: listings
+
+podAnnotations: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+env: []
+envFrom: []
+
+config:
+  LOG_LEVEL: info
+
+cloud:
+  provider: ""
+  storageClass: ""
+  ingressClass: ""

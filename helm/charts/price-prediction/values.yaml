@@ -1,0 +1,70 @@
+image:
+  repository: estateiq/price-prediction
+  tag: ""
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 50281
+  targetPort: 50281
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 4000m
+    memory: 4Gi
+
+probes:
+  liveness:
+    httpGet:
+      path: /healthz
+      port: 50281
+    initialDelaySeconds: 60
+    periodSeconds: 30
+  readiness:
+    httpGet:
+      path: /healthz
+      port: 50281
+    initialDelaySeconds: 30
+    periodSeconds: 15
+
+serviceAccount:
+  create: true
+  annotations: {}
+
+podLabels:
+  app.kubernetes.io/name: price-prediction
+  app.kubernetes.io/part-of: estateiq
+  estateiq.io/domain: analytics
+  estateiq.io/owner-team: ml
+
+podAnnotations: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+  capabilities:
+    drop: ["ALL"]
+
+env: []
+envFrom: []
+
+config:
+  LOG_LEVEL: info
+  MODEL_MIN_CONFIDENCE: "0.6"
+
+cloud:
+  provider: ""
+  storageClass: ""
+  ingressClass: ""
