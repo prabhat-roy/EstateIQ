@@ -1,0 +1,10 @@
+clusterName: estateiq.teleport.internal
+authentication:
+  type: github
+  githubConnector:
+    name: github
+    redirectUrl: https://teleport.estateiq.internal/v1/webapi/github/callback
+kubeClusterName: estateiq-prod
+ingress:
+  enabled: true
+  hostname: teleport.estateiq.internal

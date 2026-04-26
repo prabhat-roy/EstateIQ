@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: secrets/estateiq/.*\.yaml
+    kms: arn:aws:kms:us-east-1:111111111111:alias/estateiq-sops
+  - path_regex: secrets/estateiq/gcp/.*\.yaml
+    gcp_kms: projects/estateiq-prod/locations/global/keyRings/estateiq/cryptoKeys/sops
+  - path_regex: secrets/estateiq/azure/.*\.yaml
+    azure_keyvault: https://estateiq-kv.vault.azure.net/keys/sops/abc123

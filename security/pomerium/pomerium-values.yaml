@@ -1,0 +1,8 @@
+config:
+  rootDomain: pomerium.estateiq.internal
+  generateSignedJWT: true
+authenticate:
+  idp:
+    provider: oidc
+    url: https://keycloak.estateiq.internal
+ingressController: { enabled: true }
