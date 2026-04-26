@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.smartbuilding.events",
+  "name": "IotReading",
+  "doc": "smart-building.iot.reading — high-volume IoT sensor reading from MQTT/OPC-UA. Lands in TimescaleDB.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "device_id", "type": "string" },
+    { "name": "building_id", "type": "string" },
+    { "name": "metric", "type": "string", "doc": "kwh | temp_c | co2_ppm | occupancy_count" },
+    { "name": "value", "type": "double" }
+  ]
+}

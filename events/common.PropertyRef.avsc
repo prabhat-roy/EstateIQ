@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.common.events",
+  "name": "PropertyRef",
+  "fields": [
+    { "name": "property_id", "type": "string" },
+    { "name": "mls_id", "type": ["null","string"], "default": null, "doc": "RESO MLS ListingId" },
+    { "name": "title_id", "type": ["null","string"], "default": null, "doc": "Land registry title number" }
+  ]
+}

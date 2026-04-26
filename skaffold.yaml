@@ -1,0 +1,42 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata: { name: estateiq }
+
+build:
+  artifacts:
+    - image: estateiq/api-gateway
+      context: src/platform/api-gateway
+    - image: estateiq/portal-bff
+      context: src/platform/portal-bff
+    - image: estateiq/agent-bff
+      context: src/platform/agent-bff
+    - image: estateiq/listing-service
+      context: src/listings/listing-service
+    - image: estateiq/search-service
+      context: src/listings/search-service
+
+deploy:
+  helm:
+    releases:
+      - name: api-gateway
+        chartPath: helm/charts/api-gateway
+        valuesFiles: [helm/charts/api-gateway/values.yaml]
+        namespace: estateiq
+        createNamespace: true
+
+profiles:
+  - name: aws
+    deploy:
+      helm:
+        releases:
+          - { name: api-gateway, chartPath: helm/charts/api-gateway, valuesFiles: [helm/charts/api-gateway/values.yaml, helm/charts/api-gateway/values-aws.yaml] }
+  - name: gcp
+    deploy:
+      helm:
+        releases:
+          - { name: api-gateway, chartPath: helm/charts/api-gateway, valuesFiles: [helm/charts/api-gateway/values.yaml, helm/charts/api-gateway/values-gcp.yaml] }
+  - name: azure
+    deploy:
+      helm:
+        releases:
+          - { name: api-gateway, chartPath: helm/charts/api-gateway, valuesFiles: [helm/charts/api-gateway/values.yaml, helm/charts/api-gateway/values-azure.yaml] }

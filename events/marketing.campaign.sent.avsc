@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.marketing.events",
+  "name": "CampaignSent",
+  "doc": "marketing.campaign.sent — emitted when a marketing campaign batch is sent.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "campaign_id", "type": "string" },
+    { "name": "channel", "type": "string", "doc": "email | sms | push | social" },
+    { "name": "audience_size", "type": "int" }
+  ]
+}

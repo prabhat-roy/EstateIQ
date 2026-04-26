@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.propertymanagement.events",
+  "name": "WorkOrderOpened",
+  "doc": "property-management.workorder.opened — emitted when a tenant raises a maintenance request.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "work_order_id", "type": "string" },
+    { "name": "property", "type": "com.estateiq.common.events.PropertyRef" },
+    { "name": "category", "type": "string", "doc": "plumbing | electrical | hvac | pest | safety | other" },
+    { "name": "priority", "type": "string", "doc": "p1 | p2 | p3 | p4" }
+  ]
+}

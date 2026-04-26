@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package estateiq.analytics.v1;
+
+import "common/types.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.estateiq.analytics.v1";
+option java_multiple_files = true;
+
+// market-analytics: Market analytics service
+service MarketAnalyticsService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+}
+
+message HealthRequest {}
+message HealthResponse { string status = 1; string version = 2; google.protobuf.Timestamp checked_at = 3; }

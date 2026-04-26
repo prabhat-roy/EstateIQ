@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.compliance.events",
+  "name": "KycApproved",
+  "doc": "compliance.kyc.approved — emitted when KYC + AML screening pass at deal initiation. Required gate before deal can progress to escrow.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "screening_id", "type": "string" },
+    { "name": "subject_token", "type": "string", "doc": "Tokenised reference to the screened individual or entity" },
+    { "name": "regime", "type": "string", "doc": "uk-hmrc | eu-amld6 | us-bsa | uae-cbuae" },
+    { "name": "outcome", "type": "string", "doc": "pass | review | block" },
+    { "name": "expires_at", "type": { "type": "long", "logicalType": "timestamp-millis" } }
+  ]
+}

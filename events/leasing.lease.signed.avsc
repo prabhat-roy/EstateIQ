@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.leasing.events",
+  "name": "LeaseSigned",
+  "doc": "leasing.lease.signed — emitted when a tenancy lease is signed. Triggers deposit protection registration (UK TDS / AU REIA / UAE Ejari).",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "lease_id", "type": "string" },
+    { "name": "property", "type": "com.estateiq.common.events.PropertyRef" },
+    { "name": "tenant_token", "type": "string" },
+    { "name": "landlord_token", "type": "string" },
+    { "name": "term_months", "type": "int" },
+    { "name": "monthly_rent_minor_units", "type": "long" },
+    { "name": "deposit_minor_units", "type": "long" },
+    { "name": "currency_code", "type": "string" }
+  ]
+}

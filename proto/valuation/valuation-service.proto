@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package estateiq.valuation.v1;
+
+import "common/types.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.estateiq.valuation.v1";
+option java_multiple_files = true;
+
+// valuation-service: Valuation orchestrator
+service ValuationService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+
+  // Compute a property valuation. Response MUST include AvmConfidence.
+  rpc Compute(ComputeRequest) returns (ComputeResponse);
+}
+
+message HealthRequest {}
+message HealthResponse {
+  string status = 1;
+  string version = 2;
+  google.protobuf.Timestamp checked_at = 3;
+}
+
+message ComputeRequest {
+  estateiq.common.v1.PropertyRef property = 1;
+  string valuation_type = 2;   // sale | rental | reinstatement
+}
+
+message ComputeResponse {
+  estateiq.common.v1.Money valuation = 1;
+  estateiq.common.v1.AvmConfidence confidence = 2;   // CLAUDE.md rule #5
+  google.protobuf.Timestamp computed_at = 3;
+}

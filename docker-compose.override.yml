@@ -1,0 +1,10 @@
+version: "3.9"
+# Developer-local overrides. Only loaded when running locally; never committed to images.
+# Add per-developer port mappings, mounts, or extra services here without touching the
+# base docker-compose.yml.
+
+services:
+  postgres:
+    ports: ["5432:5432"]
+  redis:
+    ports: ["6379:6379"]

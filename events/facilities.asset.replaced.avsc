@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.facilities.events",
+  "name": "AssetReplaced",
+  "doc": "facilities.asset.replaced — emitted when a building asset (HVAC unit, lift) is replaced. Linked to BIM element id.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "asset_id", "type": "string" },
+    { "name": "bim_element_id", "type": ["null","string"], "default": null, "doc": "IFC GlobalId of the BIM element" },
+    { "name": "previous_serial", "type": ["null","string"], "default": null },
+    { "name": "new_serial", "type": "string" }
+  ]
+}

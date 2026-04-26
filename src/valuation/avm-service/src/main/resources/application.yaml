@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: avm-service
+server:
+  port: ${PORT:50141}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+# AVM rule-engine config — confidence thresholds. Below 0.7 the response is
+# flagged for human review (CLAUDE.md rule #5).
+avm:
+  confidence:
+    review-threshold: 0.7
+  comparables:
+    min-required: 5

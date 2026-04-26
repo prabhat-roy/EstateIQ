@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.analytics.events",
+  "name": "HeatmapRefreshed",
+  "doc": "analytics.heatmap.refreshed — emitted when a demand heatmap recompute completes (daily).",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "region_code", "type": "string", "doc": "ISO country + admin code" },
+    { "name": "tile_count", "type": "int" },
+    { "name": "model_version", "type": "string" }
+  ]
+}

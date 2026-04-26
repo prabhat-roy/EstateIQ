@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.construction.events",
+  "name": "MilestoneCompleted",
+  "doc": "construction.milestone.completed — emitted when a construction milestone is signed off.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "project_id", "type": "string" },
+    { "name": "milestone_id", "type": "string" },
+    { "name": "milestone_name", "type": "string" },
+    { "name": "completion_percent", "type": "double" }
+  ]
+}

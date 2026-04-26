@@ -1,0 +1,25 @@
+# listing-service
+
+Property listing CRUD + RESO data dictionary
+
+**Domain:** ``listings`` · **Language:** java · **Port:** 50040
+
+Listings are stored in PostgreSQL with a PostGIS `geometry(POINT,4326)` column for spatial
+search. RESO field names map directly to JPA entity fields where possible.
+
+## Run locally
+
+```bash
+make run
+```
+
+## Endpoints
+
+- ``GET /healthz`` — health check, returns ``{ "status": "ok" }``
+- ``GET /actuator/prometheus`` — metrics
+
+## See also
+
+- [proto/listings/listing-service.proto](../../../proto/listings/listing-service.proto)
+- [helm/charts/listing-service/](../../../helm/charts/listing-service/)
+- [../README.md](../README.md) — domain overview

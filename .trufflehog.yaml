@@ -1,0 +1,15 @@
+# trufflehog config — extra detectors beyond defaults.
+detectors:
+  - estateiq-mls
+  - aws
+  - gcp
+  - azure
+  - postgres
+  - keycloak
+  - vault
+exclude_paths:
+  - vendor/
+  - node_modules/
+  - .git/
+  - target/
+  - build/

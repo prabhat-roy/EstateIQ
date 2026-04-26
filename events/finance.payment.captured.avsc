@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.finance.events",
+  "name": "PaymentCaptured",
+  "doc": "finance.payment.captured — emitted when a payment is captured (rent, deposit, deal completion). Trust-account-touching payments include AML screening reference.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "payment_id", "type": "string" },
+    { "name": "amount_minor_units", "type": "long" },
+    { "name": "currency_code", "type": "string" },
+    { "name": "purpose", "type": "string", "doc": "rent | deposit | sale-completion | commission | service-charge" },
+    { "name": "trust_account_id", "type": ["null","string"], "default": null, "doc": "Set when payment lands in segregated trust account" },
+    { "name": "aml_screening_id", "type": ["null","string"], "default": null }
+  ]
+}

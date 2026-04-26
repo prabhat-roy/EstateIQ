@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.document.events",
+  "name": "ContractSigned",
+  "doc": "document.contract.signed — emitted when an esign-service callback confirms all parties have signed.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "contract_id", "type": "string" },
+    { "name": "contract_type", "type": "string", "doc": "lease | sale | service" },
+    { "name": "signers", "type": { "type": "array", "items": "string" } }
+  ]
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package estateiq.finance.v1;
+
+import "common/types.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.estateiq.finance.v1";
+option java_multiple_files = true;
+
+// trust-account-service: Trust account ledger (append-only)
+// CLAUDE.md rule #6: Trust account ledger entries are append-only — never UPDATE/DELETE.
+service TrustAccountService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+}
+
+message HealthRequest {}
+message HealthResponse { string status = 1; string version = 2; google.protobuf.Timestamp checked_at = 3; }

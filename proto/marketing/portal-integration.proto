@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package estateiq.marketing.v1;
+
+import "common/types.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.estateiq.marketing.v1";
+option java_multiple_files = true;
+
+// portal-integration: Zillow/Rightmove portal webhook handler
+service PortalIntegrationService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+}
+
+message HealthRequest {}
+message HealthResponse { string status = 1; string version = 2; google.protobuf.Timestamp checked_at = 3; }

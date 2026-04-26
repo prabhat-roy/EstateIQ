@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":semanticCommits", "schedule:weekly"],
+  "labels": ["dependencies"],
+  "vulnerabilityAlerts": { "enabled": true },
+  "packageRules": [
+    { "matchPackagePatterns": ["^docker.io/postgis/postgis"], "groupName": "PostGIS" },
+    { "matchPackagePatterns": ["^helm/"], "groupName": "Helm charts" },
+    { "matchManagers": ["terraform"], "groupName": "Terraform providers" }
+  ]
+}

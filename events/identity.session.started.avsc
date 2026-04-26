@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.identity.events",
+  "name": "SessionStarted",
+  "doc": "identity.session.started — emitted when a user session is created. PII (national_id, raw email) is tokenised.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "session_id", "type": "string" },
+    { "name": "subject_token", "type": "string" },
+    { "name": "auth_method", "type": "string", "doc": "passwordless | webauthn | mfa-totp | saml | oidc" },
+    { "name": "principal_type", "type": "string", "doc": "agent | tenant | investor | landlord | admin" }
+  ]
+}

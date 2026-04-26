@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.transactions.events",
+  "name": "DealClosed",
+  "doc": "transactions.deal.closed — emitted when a sale deal completes. Triggers commission calc, trust-account release, and land-registry update.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "deal_id", "type": "string" },
+    { "name": "property", "type": "com.estateiq.common.events.PropertyRef" },
+    { "name": "buyer_token", "type": "string" },
+    { "name": "seller_token", "type": "string" },
+    { "name": "completion_price_minor_units", "type": "long" },
+    { "name": "currency_code", "type": "string" },
+    { "name": "aml_screening_id", "type": "string", "doc": "AML screening that gated this closure" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.valuation.events",
+  "name": "AvmComputed",
+  "doc": "valuation.avm.computed — emitted when AVM produces a property valuation. Confidence interval and comparables are MANDATORY (CLAUDE.md rule #5). Low-confidence results are flagged for human review.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "property", "type": "com.estateiq.common.events.PropertyRef" },
+    { "name": "point_estimate_minor_units", "type": "long" },
+    { "name": "lower_bound_minor_units", "type": "long" },
+    { "name": "upper_bound_minor_units", "type": "long" },
+    { "name": "confidence", "type": "double", "doc": "0..1 — values < 0.7 trigger human review" },
+    { "name": "comparable_ids", "type": { "type": "array", "items": "string" } },
+    { "name": "model_version", "type": "string" },
+    { "name": "flagged_for_human_review", "type": "boolean", "default": false }
+  ]
+}

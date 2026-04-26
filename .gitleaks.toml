@@ -1,0 +1,18 @@
+title = "EstateIQ Gitleaks rules"
+[allowlist]
+description = "global allowlist"
+paths = [
+    "(.*?)(jpg|jpeg|png|gif|pdf|docx)$",
+    ".gitleaks.toml",
+    "(.*?)test(.*?)\\.go$"
+]
+
+[[rules]]
+id = "estateiq-mls-key"
+description = "Detect MLS / RESO Web API tokens"
+regex = '''(?i)(reso|mls|idx)[\\-_ ]?api[\\-_ ]?key[\\s:=\"']{1,4}[A-Za-z0-9/_\\-]{24,}'''
+
+[[rules]]
+id = "estateiq-payment-gateway"
+description = "Detect Stripe / Adyen secret keys"
+regex = '''sk_(live|test)_[A-Za-z0-9]{24,}'''

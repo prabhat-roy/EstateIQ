@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "namespace": "com.estateiq.crm.events",
+  "name": "LeadCaptured",
+  "doc": "crm.lead.captured — emitted when a buyer/tenant lead is captured. Triggers lead-scoring ML model and agent allocation.",
+  "fields": [
+    { "name": "event_id", "type": { "type": "string", "logicalType": "uuid" } },
+    { "name": "event_time", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "correlation_id", "type": "string" },
+    { "name": "actor_id", "type": ["null","string"], "default": null },
+    { "name": "lead_id", "type": "string" },
+    { "name": "source", "type": "string", "doc": "portal | web-form | walk-in | referral | social" },
+    { "name": "intent", "type": "string", "doc": "buy | rent | sell | invest" },
+    { "name": "property_id_of_interest", "type": ["null","string"], "default": null }
+  ]
+}

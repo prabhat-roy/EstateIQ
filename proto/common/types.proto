@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package estateiq.common.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.estateiq.common.v1";
+option java_multiple_files = true;
+
+// Address — postal address with optional spatial anchor (PostGIS-backed).
+message Address {
+  string line1 = 1;
+  string line2 = 2;
+  string city = 3;
+  string state = 4;
+  string country_code = 5;     // ISO 3166-1 alpha-2
+  string postal_code = 6;
+  GeoPoint geo = 7;            // WGS84 lat/long for PostGIS lookups
+  string what3words = 8;       // optional w3w address for site teams
+}
+
+// GeoPoint — WGS84 lat/long. PostGIS geometry(POINT, 4326) on the wire.
+message GeoPoint {
+  double lat = 1;
+  double lng = 2;
+}
+
+// GeoPolygon — closed ring of GeoPoints (catchment area, parcel boundary, flood zone).
+message GeoPolygon {
+  repeated GeoPoint vertices = 1;
+}
+
+// PropertyRef — pointer to a property record. The full record lives in listings.
+message PropertyRef {
+  string property_id = 1;
+  string mls_id = 2;          // RESO MLS ListingId, optional
+  string title_id = 3;        // land registry title number, optional
+}
+
+// Money — fixed-point monetary amount in minor units of the currency.
+// Real-estate prices use this; 1 GBP 250000 = { GBP, 25000000 minor units }.
+message Money {
+  string currency_code = 1;   // ISO 4217 (GBP, USD, EUR, AED)
+  int64 minor_units = 2;
+}
+
+// Pagination — request side.
+message PageRequest {
+  int32 size = 1;
+  string page_token = 2;
+}
+
+// Pagination — response side.
+message PageResponse {
+  string next_page_token = 1;
+  int64 total_size = 2;
+}
+
+// AuditMetadata — captured on every privileged write (deal close, AVM publish, trust ledger entry).
+message AuditMetadata {
+  string actor_id = 1;
+  string actor_role = 2;       // agent | landlord | tenant | investor | admin | system
+  string ip_address = 3;
+  string user_agent = 4;
+  google.protobuf.Timestamp event_time = 5;
+}
+
+// AmlScreeningRef — reference to a completed AML/KYC screening result.
+// Trust-account-touching writes must include this.
+message AmlScreeningRef {
+  string screening_id = 1;
+  string outcome = 2;          // pass | review | block
+  google.protobuf.Timestamp screened_at = 3;
+}
+
+// AvmConfidence — confidence interval that every AVM response MUST include.
+// Low-confidence valuations are flagged for human review (CLAUDE.md rule #5).
+message AvmConfidence {
+  double point_estimate = 1;   // central price estimate
+  double lower_bound = 2;
+  double upper_bound = 3;
+  double confidence = 4;       // 0..1
+  repeated string comparable_ids = 5;
+}

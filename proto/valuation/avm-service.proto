@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package estateiq.valuation.v1;
+
+import "common/types.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.estateiq.valuation.v1";
+option java_multiple_files = true;
+
+// avm-service: Automated Valuation Model rule engine
+service AvmService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+
+  // AVM responses must include a confidence interval and the comparables used.
+  rpc Predict(PredictRequest) returns (PredictResponse);
+}
+
+message HealthRequest {}
+message HealthResponse {
+  string status = 1;
+  string version = 2;
+  google.protobuf.Timestamp checked_at = 3;
+}
+
+message PredictRequest {
+  estateiq.common.v1.PropertyRef property = 1;
+}
+
+message PredictResponse {
+  estateiq.common.v1.Money predicted_price = 1;
+  estateiq.common.v1.AvmConfidence confidence = 2;
+  bool flagged_for_human_review = 3;
+}
