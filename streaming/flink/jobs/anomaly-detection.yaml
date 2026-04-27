@@ -1,0 +1,10 @@
+﻿apiVersion: flink.apache.org/v1beta1
+kind: FlinkSessionJob
+metadata: { name: estateiq-anomaly-detection, namespace: estateiq }
+spec:
+  deploymentName: estateiq-flink
+  job:
+    jarURI: s3://estateiq-flink-jobs/anomaly-detection.jar
+    parallelism: 6
+    upgradeMode: savepoint
+    args: ["--source-topic", "estateiq.metrics.raw", "--sink-topic", "estateiq.alerts.anomaly"]

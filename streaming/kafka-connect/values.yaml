@@ -1,0 +1,9 @@
+﻿image: { repository: confluentinc/cp-kafka-connect, tag: 7.7.1 }
+replicas: 3
+config:
+  bootstrap.servers: kafka.estateiq.svc:9092
+  group.id: estateiq-connect
+  config.storage.topic: estateiq.connect.configs
+  offset.storage.topic: estateiq.connect.offsets
+  status.storage.topic: estateiq.connect.status
+  plugin.path: /usr/share/connectors,/usr/share/confluent-hub-components

@@ -1,0 +1,6 @@
+﻿plugins:
+  - { id: tech-radar, config: { url: https://github.com/prabhat-roy/EstateIQ/raw/main/backstage/tech-radar.json } }
+  - { id: lighthouse, config: { baseUrl: https://lhci.estateiq.internal } }
+  - { id: opencost,   config: { baseUrl: https://opencost.estateiq.internal } }
+  - { id: argocd,     config: { url: https://argocd.estateiq.internal, token: "${ARGOCD_TOKEN}" } }
+  - { id: kubernetes, config: { clusters: [{ name: estateiq-aws, url: https://eks.estateiq.aws.internal }, { name: estateiq-gcp, url: https://gke.estateiq.gcp.internal }, { name: estateiq-azure, url: https://aks.estateiq.azure.internal }] } }

@@ -1,0 +1,10 @@
+﻿apiVersion: flink.apache.org/v1beta1
+kind: FlinkSessionJob
+metadata: { name: estateiq-aggregation, namespace: estateiq }
+spec:
+  deploymentName: estateiq-flink
+  job:
+    jarURI: s3://estateiq-flink-jobs/aggregation.jar
+    parallelism: 8
+    upgradeMode: savepoint
+    args: ["--source-topic", "estateiq.events.enriched", "--sink-topic", "estateiq.metrics.aggregated", "--window", "5m"]
