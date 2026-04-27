@@ -1,8 +1,8 @@
-# kyc-service
+﻿# kyc-service
 
-Service in the **identity** domain of EstateIQ.
+Service in the identity domain of EstateIQ.
 
-**Language:** Go · **Port:** 50025
+Language: Go Â· Port: 50025
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/kyc-service/](../../../helm/charts/kyc-service/) — Helm chart
-- [manifests/identity/kyc-service/](../../../manifests/identity/kyc-service/) — Raw K8s manifests
+- [helm/charts/kyc-service/](../../../helm/charts/kyc-service/) â€” Helm chart
+- [manifests/identity/kyc-service/](../../../manifests/identity/kyc-service/) â€” Raw K8s manifests

@@ -1,8 +1,8 @@
-# contractor-service
+﻿# contractor-service
 
-Service in the **facilities** domain of EstateIQ.
+Service in the facilities domain of EstateIQ.
 
-**Language:** Go · **Port:** 50122
+Language: Go Â· Port: 50122
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/contractor-service/](../../../helm/charts/contractor-service/) — Helm chart
-- [manifests/facilities/contractor-service/](../../../manifests/facilities/contractor-service/) — Raw K8s manifests
+- [helm/charts/contractor-service/](../../../helm/charts/contractor-service/) â€” Helm chart
+- [manifests/facilities/contractor-service/](../../../manifests/facilities/contractor-service/) â€” Raw K8s manifests

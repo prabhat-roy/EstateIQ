@@ -1,8 +1,8 @@
-# reit-service
+﻿# reit-service
 
-Service in the **investment** domain of EstateIQ.
+Service in the investment domain of EstateIQ.
 
-**Language:** Go · **Port:** 50161
+Language: Go Â· Port: 50161
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/reit-service/](../../../helm/charts/reit-service/) — Helm chart
-- [manifests/investment/reit-service/](../../../manifests/investment/reit-service/) — Raw K8s manifests
+- [helm/charts/reit-service/](../../../helm/charts/reit-service/) â€” Helm chart
+- [manifests/investment/reit-service/](../../../manifests/investment/reit-service/) â€” Raw K8s manifests

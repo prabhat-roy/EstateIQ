@@ -1,8 +1,8 @@
-# investor-sso
+﻿# investor-sso
 
-Service in the **identity** domain of EstateIQ.
+Service in the identity domain of EstateIQ.
 
-**Language:** Go · **Port:** 50022
+Language: Go Â· Port: 50022
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/investor-sso/](../../../helm/charts/investor-sso/) — Helm chart
-- [manifests/identity/investor-sso/](../../../manifests/identity/investor-sso/) — Raw K8s manifests
+- [helm/charts/investor-sso/](../../../helm/charts/investor-sso/) â€” Helm chart
+- [manifests/identity/investor-sso/](../../../manifests/identity/investor-sso/) â€” Raw K8s manifests

@@ -1,8 +1,8 @@
-# cashflow-service
+﻿# cashflow-service
 
-Service in the **investment** domain of EstateIQ.
+Service in the investment domain of EstateIQ.
 
-**Language:** Go · **Port:** 50163
+Language: Go Â· Port: 50163
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/cashflow-service/](../../../helm/charts/cashflow-service/) — Helm chart
-- [manifests/investment/cashflow-service/](../../../manifests/investment/cashflow-service/) — Raw K8s manifests
+- [helm/charts/cashflow-service/](../../../helm/charts/cashflow-service/) â€” Helm chart
+- [manifests/investment/cashflow-service/](../../../manifests/investment/cashflow-service/) â€” Raw K8s manifests

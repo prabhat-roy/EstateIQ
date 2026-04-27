@@ -1,8 +1,8 @@
-# title-service
+﻿# title-service
 
-Service in the **compliance** domain of EstateIQ.
+Service in the compliance domain of EstateIQ.
 
-**Language:** Go · **Port:** 50221
+Language: Go Â· Port: 50221
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/title-service/](../../../helm/charts/title-service/) — Helm chart
-- [manifests/compliance/title-service/](../../../manifests/compliance/title-service/) — Raw K8s manifests
+- [helm/charts/title-service/](../../../helm/charts/title-service/) â€” Helm chart
+- [manifests/compliance/title-service/](../../../manifests/compliance/title-service/) â€” Raw K8s manifests

@@ -1,8 +1,8 @@
-# inspection-service
+﻿# inspection-service
 
-Service in the **property-management** domain of EstateIQ.
+Service in the property-management domain of EstateIQ.
 
-**Language:** Go · **Port:** 50102
+Language: Go Â· Port: 50102
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/inspection-service/](../../../helm/charts/inspection-service/) — Helm chart
-- [manifests/property-management/inspection-service/](../../../manifests/property-management/inspection-service/) — Raw K8s manifests
+- [helm/charts/inspection-service/](../../../helm/charts/inspection-service/) â€” Helm chart
+- [manifests/property-management/inspection-service/](../../../manifests/property-management/inspection-service/) â€” Raw K8s manifests

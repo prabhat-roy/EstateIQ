@@ -1,8 +1,8 @@
-# escrow-service
+﻿# escrow-service
 
-Service in the **transactions** domain of EstateIQ.
+Service in the transactions domain of EstateIQ.
 
-**Language:** Go · **Port:** 50063
+Language: Go Â· Port: 50063
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/escrow-service/](../../../helm/charts/escrow-service/) — Helm chart
-- [manifests/transactions/escrow-service/](../../../manifests/transactions/escrow-service/) — Raw K8s manifests
+- [helm/charts/escrow-service/](../../../helm/charts/escrow-service/) â€” Helm chart
+- [manifests/transactions/escrow-service/](../../../manifests/transactions/escrow-service/) â€” Raw K8s manifests

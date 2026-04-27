@@ -1,8 +1,8 @@
-# portal-sync
+﻿# portal-sync
 
-Service in the **listings** domain of EstateIQ.
+Service in the listings domain of EstateIQ.
 
-**Language:** Go · **Port:** 50042
+Language: Go Â· Port: 50042
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/portal-sync/](../../../helm/charts/portal-sync/) — Helm chart
-- [manifests/listings/portal-sync/](../../../manifests/listings/portal-sync/) — Raw K8s manifests
+- [helm/charts/portal-sync/](../../../helm/charts/portal-sync/) â€” Helm chart
+- [manifests/listings/portal-sync/](../../../manifests/listings/portal-sync/) â€” Raw K8s manifests

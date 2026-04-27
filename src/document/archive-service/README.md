@@ -1,8 +1,8 @@
-# archive-service
+﻿# archive-service
 
-Service in the **document** domain of EstateIQ.
+Service in the document domain of EstateIQ.
 
-**Language:** Go · **Port:** 50282
+Language: Go Â· Port: 50282
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/archive-service/](../../../helm/charts/archive-service/) — Helm chart
-- [manifests/document/archive-service/](../../../manifests/document/archive-service/) — Raw K8s manifests
+- [helm/charts/archive-service/](../../../helm/charts/archive-service/) â€” Helm chart
+- [manifests/document/archive-service/](../../../manifests/document/archive-service/) â€” Raw K8s manifests

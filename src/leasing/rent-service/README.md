@@ -1,8 +1,8 @@
-# rent-service
+﻿# rent-service
 
-Service in the **leasing** domain of EstateIQ.
+Service in the leasing domain of EstateIQ.
 
-**Language:** Go · **Port:** 50082
+Language: Go Â· Port: 50082
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/rent-service/](../../../helm/charts/rent-service/) — Helm chart
-- [manifests/leasing/rent-service/](../../../manifests/leasing/rent-service/) — Raw K8s manifests
+- [helm/charts/rent-service/](../../../helm/charts/rent-service/) â€” Helm chart
+- [manifests/leasing/rent-service/](../../../manifests/leasing/rent-service/) â€” Raw K8s manifests

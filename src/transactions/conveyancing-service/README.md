@@ -1,8 +1,8 @@
-# conveyancing-service
+﻿# conveyancing-service
 
-Service in the **transactions** domain of EstateIQ.
+Service in the transactions domain of EstateIQ.
 
-**Language:** Go · **Port:** 50062
+Language: Go Â· Port: 50062
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/conveyancing-service/](../../../helm/charts/conveyancing-service/) — Helm chart
-- [manifests/transactions/conveyancing-service/](../../../manifests/transactions/conveyancing-service/) — Raw K8s manifests
+- [helm/charts/conveyancing-service/](../../../helm/charts/conveyancing-service/) â€” Helm chart
+- [manifests/transactions/conveyancing-service/](../../../manifests/transactions/conveyancing-service/) â€” Raw K8s manifests

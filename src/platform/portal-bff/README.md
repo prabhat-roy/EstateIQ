@@ -1,8 +1,8 @@
-# portal-bff
+﻿# portal-bff
 
-Service in the **platform** domain of EstateIQ.
+Service in the platform domain of EstateIQ.
 
-**Language:** Go · **Port:** 50003
+Language: Go Â· Port: 50003
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/portal-bff/](../../../helm/charts/portal-bff/) — Helm chart
-- [manifests/platform/portal-bff/](../../../manifests/platform/portal-bff/) — Raw K8s manifests
+- [helm/charts/portal-bff/](../../../helm/charts/portal-bff/) â€” Helm chart
+- [manifests/platform/portal-bff/](../../../manifests/platform/portal-bff/) â€” Raw K8s manifests

@@ -1,8 +1,8 @@
-# auth-service
+﻿# auth-service
 
-FIDO2/WebAuthn passwordless auth — used by tenants, agents, investors and admins.
+FIDO2/WebAuthn passwordless auth â€” used by tenants, agents, investors and admins.
 
-**Domain:** ``identity`` · **Language:** rust · **Port:** 50020
+Domain: ``identity`` Â· Language: rust Â· Port: 50020
 
 ## Run locally
 

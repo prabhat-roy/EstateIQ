@@ -1,8 +1,8 @@
-# deposit-service
+﻿# deposit-service
 
-Service in the **leasing** domain of EstateIQ.
+Service in the leasing domain of EstateIQ.
 
-**Language:** Go · **Port:** 50084
+Language: Go Â· Port: 50084
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/deposit-service/](../../../helm/charts/deposit-service/) — Helm chart
-- [manifests/leasing/deposit-service/](../../../manifests/leasing/deposit-service/) — Raw K8s manifests
+- [helm/charts/deposit-service/](../../../helm/charts/deposit-service/) â€” Helm chart
+- [manifests/leasing/deposit-service/](../../../manifests/leasing/deposit-service/) â€” Raw K8s manifests

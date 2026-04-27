@@ -1,8 +1,8 @@
-# agent-sso
+﻿# agent-sso
 
-Service in the **identity** domain of EstateIQ.
+Service in the identity domain of EstateIQ.
 
-**Language:** Go · **Port:** 50021
+Language: Go Â· Port: 50021
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/agent-sso/](../../../helm/charts/agent-sso/) — Helm chart
-- [manifests/identity/agent-sso/](../../../manifests/identity/agent-sso/) — Raw K8s manifests
+- [helm/charts/agent-sso/](../../../helm/charts/agent-sso/) â€” Helm chart
+- [manifests/identity/agent-sso/](../../../manifests/identity/agent-sso/) â€” Raw K8s manifests

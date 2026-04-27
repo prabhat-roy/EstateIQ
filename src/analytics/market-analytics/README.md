@@ -1,8 +1,8 @@
-# market-analytics
+﻿# market-analytics
 
-Service in the **analytics** domain of EstateIQ.
+Service in the analytics domain of EstateIQ.
 
-**Language:** Go · **Port:** 50260
+Language: Go Â· Port: 50260
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/market-analytics/](../../../helm/charts/market-analytics/) — Helm chart
-- [manifests/analytics/market-analytics/](../../../manifests/analytics/market-analytics/) — Raw K8s manifests
+- [helm/charts/market-analytics/](../../../helm/charts/market-analytics/) â€” Helm chart
+- [manifests/analytics/market-analytics/](../../../manifests/analytics/market-analytics/) â€” Raw K8s manifests

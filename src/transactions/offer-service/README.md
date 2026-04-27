@@ -1,8 +1,8 @@
-# offer-service
+﻿# offer-service
 
-Service in the **transactions** domain of EstateIQ.
+Service in the transactions domain of EstateIQ.
 
-**Language:** Go · **Port:** 50061
+Language: Go Â· Port: 50061
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/offer-service/](../../../helm/charts/offer-service/) — Helm chart
-- [manifests/transactions/offer-service/](../../../manifests/transactions/offer-service/) — Raw K8s manifests
+- [helm/charts/offer-service/](../../../helm/charts/offer-service/) â€” Helm chart
+- [manifests/transactions/offer-service/](../../../manifests/transactions/offer-service/) â€” Raw K8s manifests

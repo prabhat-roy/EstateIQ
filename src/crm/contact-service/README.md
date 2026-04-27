@@ -1,8 +1,8 @@
-# contact-service
+﻿# contact-service
 
-Service in the **crm** domain of EstateIQ.
+Service in the crm domain of EstateIQ.
 
-**Language:** Go · **Port:** 50180
+Language: Go Â· Port: 50180
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/contact-service/](../../../helm/charts/contact-service/) — Helm chart
-- [manifests/crm/contact-service/](../../../manifests/crm/contact-service/) — Raw K8s manifests
+- [helm/charts/contact-service/](../../../helm/charts/contact-service/) â€” Helm chart
+- [manifests/crm/contact-service/](../../../manifests/crm/contact-service/) â€” Raw K8s manifests

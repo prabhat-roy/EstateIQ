@@ -1,8 +1,8 @@
-# land-registry
+﻿# land-registry
 
-Service in the **compliance** domain of EstateIQ.
+Service in the compliance domain of EstateIQ.
 
-**Language:** Go · **Port:** 50223
+Language: Go Â· Port: 50223
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/land-registry/](../../../helm/charts/land-registry/) — Helm chart
-- [manifests/compliance/land-registry/](../../../manifests/compliance/land-registry/) — Raw K8s manifests
+- [helm/charts/land-registry/](../../../helm/charts/land-registry/) â€” Helm chart
+- [manifests/compliance/land-registry/](../../../manifests/compliance/land-registry/) â€” Raw K8s manifests

@@ -1,8 +1,8 @@
-# access-service
+﻿# access-service
 
-Service in the **smart-building** domain of EstateIQ.
+Service in the smart-building domain of EstateIQ.
 
-**Language:** Go · **Port:** 50242
+Language: Go Â· Port: 50242
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/access-service/](../../../helm/charts/access-service/) — Helm chart
-- [manifests/smart-building/access-service/](../../../manifests/smart-building/access-service/) — Raw K8s manifests
+- [helm/charts/access-service/](../../../helm/charts/access-service/) â€” Helm chart
+- [manifests/smart-building/access-service/](../../../manifests/smart-building/access-service/) â€” Raw K8s manifests

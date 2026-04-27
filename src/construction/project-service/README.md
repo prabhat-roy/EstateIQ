@@ -1,8 +1,8 @@
-# project-service
+﻿# project-service
 
-Service in the **construction** domain of EstateIQ.
+Service in the construction domain of EstateIQ.
 
-**Language:** Go · **Port:** 50140
+Language: Go Â· Port: 50140
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/project-service/](../../../helm/charts/project-service/) — Helm chart
-- [manifests/construction/project-service/](../../../manifests/construction/project-service/) — Raw K8s manifests
+- [helm/charts/project-service/](../../../helm/charts/project-service/) â€” Helm chart
+- [manifests/construction/project-service/](../../../manifests/construction/project-service/) â€” Raw K8s manifests

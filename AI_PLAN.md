@@ -1,4 +1,4 @@
-# AI_PLAN.md — EstateIQ (Real Estate & Property Management Platform)
+﻿# AI_PLAN.md â€” EstateIQ (Real Estate & Property Management Platform)
 
 > Hierarchical AI/ML strategy. Reuses the Paperclip / OpenClaw / NemoClaw
 > agent platform first defined in [ShopOS/AI.md](../ShopOS/AI.md). This file
@@ -8,14 +8,14 @@
 
 ## 1. Why AI in EstateIQ
 
-Real estate is a high-stakes, low-data-velocity domain — wrong AVM by 5%
+Real estate is a high-stakes, low-data-velocity domain â€” wrong AVM by 5%
 costs the buyer / seller real money, and bad lead-scoring sinks broker
 margins. EstateIQ AI must be:
 
-- **Explainable** (every AVM ships with confidence interval + comparables).
-- **Spatial-first** (PostGIS embeddings, isochrone reasoning).
-- **Compliant** (AML/KYC + GDPR/CCPA + RICS / REIA trust-account audit).
-- **Multimodal** (listings = text + images + video + 360° + floor plans + BIM).
+- Explainable (every AVM ships with confidence interval + comparables).
+- Spatial-first (PostGIS embeddings, isochrone reasoning).
+- Compliant (AML/KYC + GDPR/CCPA + RICS / REIA trust-account audit).
+- Multimodal (listings = text + images + video + 360Â° + floor plans + BIM).
 
 ---
 
@@ -32,25 +32,25 @@ margins. EstateIQ AI must be:
 | 7 | AML transaction-pattern detection | compliance | Graph neural net (PyG) | nightly batch |
 | 8 | Floor-plan to BIM/IFC structuring | construction, facilities | YOLO + LayoutParser + Llama 3.1 | <30 s/plan |
 | 9 | Comparable-properties retrieval | valuation, listings | E5-large embeddings + Qdrant + spatial filter | <300 ms |
-| 10 | 360° tour quality scoring & re-shoot suggestions | listings, media | CLIP + custom CV scorer | <2 s/scene |
-| 11 | Conversational property search ("3-bed near tube under £600k") | listings, search | Llama 3.1 70B + structured query gen | <1.2 s |
+| 10 | 360Â° tour quality scoring & re-shoot suggestions | listings, media | CLIP + custom CV scorer | <2 s/scene |
+| 11 | Conversational property search ("3-bed near tube under Â£600k") | listings, search | Llama 3.1 70B + structured query gen | <1.2 s |
 | 12 | Smart-building anomaly detection (energy, occupancy) | smart-building | Isolation Forest on TimescaleDB | streaming |
 
 ---
 
 ## 3. Hierarchical Agent Architecture
 
-Reuses the **OpenClaw** agent platform, **Paperclip** orchestrator, and
-**NemoClaw** sandbox names from `ShopOS/AI.md`.
+Reuses the OpenClaw agent platform, Paperclip orchestrator, and
+NemoClaw sandbox names from `ShopOS/AI.md`.
 
-### Tier 0 — Master Architect Agent
+### Tier 0 â€” Master Architect Agent
 
 - `estate-architect` (OpenClaw + Llama 3.1 70B, 128k ctx).
 - Owns: research new AI tooling, propose new services, on-board Tier-1
   leads, retire obsolete agents, weekly written report.
 - Read-only on prod; writes to `staging-gitops` only.
 
-### Tier 1 — Division Leads (5 agents)
+### Tier 1 â€” Division Leads (5 agents)
 
 | Agent | Scope |
 |-------|-------|
@@ -60,31 +60,31 @@ Reuses the **OpenClaw** agent platform, **Paperclip** orchestrator, and
 | `estate-dataml-lead`     | AVM training, feature store, drift |
 | `estate-platform-lead`   | Cross-cutting (idempotency, saga, outbox) |
 
-### Tier 2 — Specialist Agents
+### Tier 2 â€” Specialist Agents
 
-**By language**: `go-agent`, `java-agent`, `kotlin-agent`, `python-agent`,
+By language: `go-agent`, `java-agent`, `kotlin-agent`, `python-agent`,
 `node-agent`, `rust-agent`, `typescript-agent`. Lint, test, dep upgrades,
 CVE fixes, doc gen, refactor proposals.
 
-**By tool** — one agent per OSS tool: PostgreSQL/PostGIS, MongoDB, Redis,
+By tool â€” one agent per OSS tool: PostgreSQL/PostGIS, MongoDB, Redis,
 Elasticsearch, TimescaleDB, MinIO, Kafka, NATS, RabbitMQ, Vault, Keycloak,
 OPA, Kyverno, Falco, Cilium, Istio, ArgoCD, Argo Rollouts, Argo Workflows,
 Prometheus, Grafana, Loki, Jaeger, Tempo, OpenTelemetry, Trivy, Cosign,
 GeoServer, MapLibre, Strapi-CMS, Camunda, Druid, Pulsar, OpenFGA, Wazuh.
 
-**By service** — one agent per microservice (175+). Bound to
+By service â€” one agent per microservice (175+). Bound to
 `src/<domain>/<service>/`. Owns README, OpenAPI, test coverage, CHANGELOG,
 deps, /healthz wiring.
 
-### Tier 3 — Ephemeral Workers
+### Tier 3 â€” Ephemeral Workers
 
 Spawned per Argo Workflows job (run AVM retraining, generate migration,
 write a runbook). Live <30 minutes. Output reviewed by a Tier-2 agent.
 
 ### Lifecycle (every agent)
 
-Research → Document → Implement → Test → Review → Deploy → Monitor →
-Respond → Upgrade → Report. Same flow as ShopOS. Weekly markdown report
+Research â†’ Document â†’ Implement â†’ Test â†’ Review â†’ Deploy â†’ Monitor â†’
+Respond â†’ Upgrade â†’ Report. Same flow as ShopOS. Weekly markdown report
 committed to `ai/reports/`.
 
 ---
@@ -93,21 +93,21 @@ committed to `ai/reports/`.
 
 ```
 ai-platform/
-├── cluster: estate-ai-{aws,gcp,azure}    ← GPU node pools, taint=ai-only
-├── namespace: estate-ai-control           ← Paperclip
-├── namespace: estate-ai-agents            ← OpenClaw runtime
-├── namespace: estate-ai-sandbox           ← NemoClaw
-├── namespace: estate-ai-models            ← vLLM, Ollama, LiteLLM
-├── namespace: estate-ai-data              ← Qdrant (spatial), Weaviate (multimodal)
-├── namespace: estate-ai-obs               ← Langfuse, Phoenix
-└── namespace: estate-ai-pipelines         ← Argo Workflows
+â”œâ”€â”€ cluster: estate-ai-{aws,gcp,azure}    â† GPU node pools, taint=ai-only
+â”œâ”€â”€ namespace: estate-ai-control           â† Paperclip
+â”œâ”€â”€ namespace: estate-ai-agents            â† OpenClaw runtime
+â”œâ”€â”€ namespace: estate-ai-sandbox           â† NemoClaw
+â”œâ”€â”€ namespace: estate-ai-models            â† vLLM, Ollama, LiteLLM
+â”œâ”€â”€ namespace: estate-ai-data              â† Qdrant (spatial), Weaviate (multimodal)
+â”œâ”€â”€ namespace: estate-ai-obs               â† Langfuse, Phoenix
+â””â”€â”€ namespace: estate-ai-pipelines         â† Argo Workflows
 ```
 
 ### Hardware
 
-- **AWS**: 2× `g5.12xlarge` for inference; 1× `p4d.24xlarge` for AVM
+- AWS: 2Ã— `g5.12xlarge` for inference; 1Ã— `p4d.24xlarge` for AVM
   retraining + image diffusion. Spot pool for batch.
-- **GCP / Azure**: equivalent A100 / L4 pools. Identical Helm overlays.
+- GCP / Azure: equivalent A100 / L4 pools. Identical Helm overlays.
 
 ### Software stack
 
@@ -117,9 +117,9 @@ ai-platform/
 | Image gen | ComfyUI + SDXL | Virtual staging, listing image enhancement |
 | Local dev | Ollama | Offline POCs |
 | Gateway | LiteLLM | OpenAI-compatible, per-team quota |
-| Orchestrator | **Paperclip** | Task queue, agent inbox, audit |
-| Agent platform | **OpenClaw** | Llama 3.1 70B agent runtime |
-| Sandbox | **NemoClaw** | NeMo Guardrails |
+| Orchestrator | Paperclip | Task queue, agent inbox, audit |
+| Agent platform | OpenClaw | Llama 3.1 70B agent runtime |
+| Sandbox | NemoClaw | NeMo Guardrails |
 | Vector | Qdrant | Comparables, listing embeddings (with PostGIS join) |
 | Vector | Weaviate | Multimodal (text + image + floor-plan) |
 | MLOps | MLflow | AVM model registry, experiment tracking |
@@ -133,7 +133,7 @@ ai-platform/
 
 - AVM training data lake in MinIO, encrypted (Vault Transit).
 - KYC document store: separate MinIO bucket, region-locked, retention 7 yrs.
-- Vector DB sharded per market (UK / EU / AU / UAE / IN) — no cross-market
+- Vector DB sharded per market (UK / EU / AU / UAE / IN) â€” no cross-market
   retrieval to keep listing-comp logic legally local.
 - Hashed customer-ID in every Langfuse / Paperclip trace.
 
@@ -161,7 +161,7 @@ ai-platform/
 | 3 | Tier-1 division leads; first AVM model on MLflow |
 | 4 | Per-language Tier-2 agents; dep-upgrade PR flow |
 | 5 | Per-tool Tier-2 agents; first AVM canary in shadow mode |
-| 6 | Per-service Tier-2 agents (listings → valuation → crm) |
+| 6 | Per-service Tier-2 agents (listings â†’ valuation â†’ crm) |
 | 7 | First prod AI: AVM v1, conversational property search |
 | 8 | Lead scoring, demand heatmap, multi-cloud failover drill |
 
@@ -169,8 +169,8 @@ ai-platform/
 
 ## 7. Cost Envelope (target)
 
-- **Infra**: $3,800 – $6,200 / month per primary cloud
-- **No** subscription LLM spend
+- Infra: $3,800 â€“ $6,200 / month per primary cloud
+- No subscription LLM spend
 - AVM retraining: $400 / month spot GPU
 
 ---

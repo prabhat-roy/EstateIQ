@@ -1,8 +1,8 @@
-# mls-syndicator
+﻿# mls-syndicator
 
-Service in the **listings** domain of EstateIQ.
+Service in the listings domain of EstateIQ.
 
-**Language:** Go · **Port:** 50041
+Language: Go Â· Port: 50041
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/mls-syndicator/](../../../helm/charts/mls-syndicator/) — Helm chart
-- [manifests/listings/mls-syndicator/](../../../manifests/listings/mls-syndicator/) — Raw K8s manifests
+- [helm/charts/mls-syndicator/](../../../helm/charts/mls-syndicator/) â€” Helm chart
+- [manifests/listings/mls-syndicator/](../../../manifests/listings/mls-syndicator/) â€” Raw K8s manifests

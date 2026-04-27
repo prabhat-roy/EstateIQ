@@ -1,8 +1,8 @@
-# work-order-service
+﻿# work-order-service
 
-Service in the **facilities** domain of EstateIQ.
+Service in the facilities domain of EstateIQ.
 
-**Language:** Go · **Port:** 50121
+Language: Go Â· Port: 50121
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/work-order-service/](../../../helm/charts/work-order-service/) — Helm chart
-- [manifests/facilities/work-order-service/](../../../manifests/facilities/work-order-service/) — Raw K8s manifests
+- [helm/charts/work-order-service/](../../../helm/charts/work-order-service/) â€” Helm chart
+- [manifests/facilities/work-order-service/](../../../manifests/facilities/work-order-service/) â€” Raw K8s manifests

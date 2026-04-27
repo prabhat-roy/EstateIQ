@@ -1,8 +1,8 @@
-# parking-service
+﻿# parking-service
 
-Service in the **smart-building** domain of EstateIQ.
+Service in the smart-building domain of EstateIQ.
 
-**Language:** Go · **Port:** 50243
+Language: Go Â· Port: 50243
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/parking-service/](../../../helm/charts/parking-service/) — Helm chart
-- [manifests/smart-building/parking-service/](../../../manifests/smart-building/parking-service/) — Raw K8s manifests
+- [helm/charts/parking-service/](../../../helm/charts/parking-service/) â€” Helm chart
+- [manifests/smart-building/parking-service/](../../../manifests/smart-building/parking-service/) â€” Raw K8s manifests

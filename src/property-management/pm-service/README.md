@@ -1,8 +1,8 @@
-# pm-service
+﻿# pm-service
 
-Service in the **property-management** domain of EstateIQ.
+Service in the property-management domain of EstateIQ.
 
-**Language:** Go · **Port:** 50100
+Language: Go Â· Port: 50100
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/pm-service/](../../../helm/charts/pm-service/) — Helm chart
-- [manifests/property-management/pm-service/](../../../manifests/property-management/pm-service/) — Raw K8s manifests
+- [helm/charts/pm-service/](../../../helm/charts/pm-service/) â€” Helm chart
+- [manifests/property-management/pm-service/](../../../manifests/property-management/pm-service/) â€” Raw K8s manifests

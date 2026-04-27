@@ -1,8 +1,8 @@
-# tenant-sso
+﻿# tenant-sso
 
-Service in the **identity** domain of EstateIQ.
+Service in the identity domain of EstateIQ.
 
-**Language:** Go · **Port:** 50023
+Language: Go Â· Port: 50023
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/tenant-sso/](../../../helm/charts/tenant-sso/) — Helm chart
-- [manifests/identity/tenant-sso/](../../../manifests/identity/tenant-sso/) — Raw K8s manifests
+- [helm/charts/tenant-sso/](../../../helm/charts/tenant-sso/) â€” Helm chart
+- [manifests/identity/tenant-sso/](../../../manifests/identity/tenant-sso/) â€” Raw K8s manifests

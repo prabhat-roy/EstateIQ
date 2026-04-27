@@ -1,8 +1,8 @@
-# renewal-service
+﻿# renewal-service
 
-Service in the **leasing** domain of EstateIQ.
+Service in the leasing domain of EstateIQ.
 
-**Language:** Go · **Port:** 50083
+Language: Go Â· Port: 50083
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/renewal-service/](../../../helm/charts/renewal-service/) — Helm chart
-- [manifests/leasing/renewal-service/](../../../manifests/leasing/renewal-service/) — Raw K8s manifests
+- [helm/charts/renewal-service/](../../../helm/charts/renewal-service/) â€” Helm chart
+- [manifests/leasing/renewal-service/](../../../manifests/leasing/renewal-service/) â€” Raw K8s manifests

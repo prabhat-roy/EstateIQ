@@ -1,8 +1,8 @@
-# maintenance-service
+﻿# maintenance-service
 
-Service in the **property-management** domain of EstateIQ.
+Service in the property-management domain of EstateIQ.
 
-**Language:** Go · **Port:** 50101
+Language: Go Â· Port: 50101
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/maintenance-service/](../../../helm/charts/maintenance-service/) — Helm chart
-- [manifests/property-management/maintenance-service/](../../../manifests/property-management/maintenance-service/) — Raw K8s manifests
+- [helm/charts/maintenance-service/](../../../helm/charts/maintenance-service/) â€” Helm chart
+- [manifests/property-management/maintenance-service/](../../../manifests/property-management/maintenance-service/) â€” Raw K8s manifests

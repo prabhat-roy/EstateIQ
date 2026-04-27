@@ -1,8 +1,8 @@
-# deal-service
+﻿# deal-service
 
-Service in the **transactions** domain of EstateIQ.
+Service in the transactions domain of EstateIQ.
 
-**Language:** Go · **Port:** 50060
+Language: Go Â· Port: 50060
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/deal-service/](../../../helm/charts/deal-service/) — Helm chart
-- [manifests/transactions/deal-service/](../../../manifests/transactions/deal-service/) — Raw K8s manifests
+- [helm/charts/deal-service/](../../../helm/charts/deal-service/) â€” Helm chart
+- [manifests/transactions/deal-service/](../../../manifests/transactions/deal-service/) â€” Raw K8s manifests

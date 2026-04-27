@@ -1,8 +1,8 @@
-# demand-heatmap
+﻿# demand-heatmap
 
-Service in the **analytics** domain of EstateIQ.
+Service in the analytics domain of EstateIQ.
 
-**Language:** Go · **Port:** 50261
+Language: Go Â· Port: 50261
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/demand-heatmap/](../../../helm/charts/demand-heatmap/) — Helm chart
-- [manifests/analytics/demand-heatmap/](../../../manifests/analytics/demand-heatmap/) — Raw K8s manifests
+- [helm/charts/demand-heatmap/](../../../helm/charts/demand-heatmap/) â€” Helm chart
+- [manifests/analytics/demand-heatmap/](../../../manifests/analytics/demand-heatmap/) â€” Raw K8s manifests

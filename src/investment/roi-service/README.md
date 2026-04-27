@@ -1,8 +1,8 @@
-# roi-service
+﻿# roi-service
 
-Service in the **investment** domain of EstateIQ.
+Service in the investment domain of EstateIQ.
 
-**Language:** Go · **Port:** 50162
+Language: Go Â· Port: 50162
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/roi-service/](../../../helm/charts/roi-service/) — Helm chart
-- [manifests/investment/roi-service/](../../../manifests/investment/roi-service/) — Raw K8s manifests
+- [helm/charts/roi-service/](../../../helm/charts/roi-service/) â€” Helm chart
+- [manifests/investment/roi-service/](../../../manifests/investment/roi-service/) â€” Raw K8s manifests

@@ -1,7 +1,7 @@
-# search-service
+﻿# search-service
 
 Geospatial property search. Combines Elasticsearch (full-text + facets) with PostGIS
-(radius / polygon / catchment-area filtering). The critical path of the platform —
+(radius / polygon / catchment-area filtering). The critical path of the platform â€”
 SLO is P95 < 500ms.
 
-**Domain:** ``listings`` · **Language:** go · **Port:** 50041
+Domain: ``listings`` Â· Language: go Â· Port: 50041
